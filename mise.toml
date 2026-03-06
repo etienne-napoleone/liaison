@@ -1,0 +1,3 @@
+[tools]
+python = "3.13.12"
+gcloud = "558.0.0"
