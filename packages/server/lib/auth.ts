@@ -1,7 +1,8 @@
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
+import { Context, Next } from "hono";
 
-import { db, schema } from "../db";
+import { db, schema } from "@/db";
 
 export const auth = betterAuth({
   database: drizzleAdapter(db, {
@@ -20,3 +21,12 @@ export const auth = betterAuth({
     },
   },
 });
+
+export const requireAuth = async (c: Context, next: Next) => {
+  const session = await auth.api.getSession({ headers: c.req.raw.headers });
+  if (!session) return c.body(null, 401);
+
+  c.set("user", session.user);
+  c.set("session", session.session);
+  await next();
+};

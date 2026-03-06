@@ -5,6 +5,11 @@
     "auth:schema": "bun run --bun auth generate --output db/schema/auth.ts -y && bun prettier -w db/schema/auth.ts",
     "db:push": "bun run drizzle-kit push"
   },
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
   "dependencies": {
     "better-auth": "^1.5.4",
     "drizzle-orm": "^0.45.1",

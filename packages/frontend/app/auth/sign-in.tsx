@@ -18,6 +18,7 @@ export default function Home() {
         onClick={() => {
           auth.signIn.social({
             provider: "google",
+            callbackURL: "http://127.0.0.1:5173/",
           });
         }}
       >
