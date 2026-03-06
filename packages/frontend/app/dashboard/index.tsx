@@ -9,13 +9,20 @@ export function meta({}: Route.MetaArgs) {
 export async function clientLoader({ params }: Route.ClientLoaderArgs) {
   const res = await api.messages.$get({});
   if (!res.ok) {
-    return { token: null };
+    throw new Response("Failed to load messages", { status: 500 });
   }
 
   return res.json();
 }
 
 export default function Dashboard({ loaderData }: Route.ComponentProps) {
-  const { token } = loaderData;
-  return token;
+  const messages = loaderData;
+
+  return (
+    <div>
+      {messages.map((message) => (
+        <div key={message.id}>{message.payload?.headers?.find((h) => h.name === "Subject")?.value ?? "Unknown"}</div>
+      ))}
+    </div>
+  );
 }

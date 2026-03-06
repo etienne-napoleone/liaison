@@ -11,6 +11,7 @@
     ".": "./src/index.ts"
   },
   "dependencies": {
+    "@googleapis/gmail": "^16.1.1",
     "better-auth": "^1.5.4",
     "drizzle-orm": "^0.45.1",
     "hono": "^4.12.5"

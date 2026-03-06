@@ -1,5 +1,7 @@
 import { AuthLayout } from "components/ui/auth-layout";
-import { Outlet } from "react-router";
+import { Outlet, redirect } from "react-router";
+
+import { auth } from "@/lib/auth";
 
 export default function Layout() {
   return (
