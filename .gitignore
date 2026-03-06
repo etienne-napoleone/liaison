@@ -1,6 +1,9 @@
 # dependencies (bun install)
 node_modules
 
+# sqlite database
+*.sqlite
+
 # react-router
 .react-router
 build

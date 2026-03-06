@@ -6,7 +6,7 @@
   ],
   "scripts": {
     "lint": "bunx tsc --noEmit",
-    "prettier:w": "prettier -w './**/*.{ts,tsx}'"
+    "prettier:w": "prettier -w './**/*.{ts,tsx,json}' --ignore-path .gitignore"
   },
   "private": true,
   "dependencies": {
