@@ -2,7 +2,8 @@
   "name": "server",
   "scripts": {
     "dev": "bun run --hot src/index.ts",
-    "auth:schema": "bun run --bun auth generate --output db/schema/auth.ts -y && bun prettier -w db/schema/auth.ts"
+    "auth:schema": "bun run --bun auth generate --output db/schema/auth.ts -y && bun prettier -w db/schema/auth.ts",
+    "db:push": "bun run drizzle-kit push"
   },
   "dependencies": {
     "better-auth": "^1.5.4",

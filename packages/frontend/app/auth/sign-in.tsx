@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Heading } from "@/components/ui/heading";
 import { Text } from "@/components/ui/text";
+import { auth } from "@/lib/auth";
 
 import type { Route } from "./+types/sign-in";
 
@@ -13,7 +14,13 @@ export default function Home() {
     <div className="grid w-full max-w-sm grid-cols-1 gap-4">
       <Heading>Sign in to your account</Heading>
       <Text>We currently only support signing in with Google.</Text>
-      <Button onClick={() => {}}>
+      <Button
+        onClick={() => {
+          auth.signIn.social({
+            provider: "google",
+          });
+        }}
+      >
         <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4" data-slot="icon">
           <path
             d="M12.0003 4.75C13.7703 4.75 15.3553 5.36002 16.6053 6.54998L20.0303 3.125C17.9502 1.19 15.2353 0 12.0003 0C7.31028 0 3.25527 2.69 1.28027 6.60998L5.27028 9.70498C6.21525 6.86002 8.87028 4.75 12.0003 4.75Z"
